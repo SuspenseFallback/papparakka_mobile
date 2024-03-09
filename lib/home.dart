@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class HomePageStats extends StatelessWidget {
-  const HomePageStats({super.key});
+  const HomePageStats({super.key, required this.cardsStudied});
+
+  final int cardsStudied;
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: <Widget>[
         Text(
           'Your stats',
@@ -19,7 +21,7 @@ class HomePageStats extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Column(
-                children: <Text>[
+                children: const <Text>[
                   Text('0',
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.w500)),
@@ -27,7 +29,7 @@ class HomePageStats extends StatelessWidget {
                 ],
               ),
               Column(
-                children: <Text>[
+                children: const <Text>[
                   Text('0',
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.w500)),
@@ -36,7 +38,7 @@ class HomePageStats extends StatelessWidget {
               ),
               Column(
                 children: <Text>[
-                  Text('0',
+                  Text('$cardsStudied',
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.w500)),
                   Text('cards studied'),
