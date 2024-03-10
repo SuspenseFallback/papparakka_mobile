@@ -12,6 +12,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   late TextEditingController emailController;
   late TextEditingController passwordController;
+  String? error = "";
 
   String email = "";
   String password = "";
@@ -67,10 +68,17 @@ class _LoginPageState extends State<LoginPage> {
   void submitHandler() async {
     String? res = await AuthService().logIn(email, password);
 
-    print(res);
-    if (!mounted) return;
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const HomePage(title: 'Home')));
+    if (res == "200") {
+      if (!mounted) return;
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => const HomePage(title: 'Home')));
+    } else {
+      setState(() {
+        error = "Invalid email or password";
+      });
+    }
   }
 
   @override
@@ -103,6 +111,16 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               SizedBox(height: 20),
+              Builder(builder: (builder) {
+                if (error == "") {
+                  return Text("");
+                } else {
+                  return Column(children: <Widget>[
+                    Text("$error", style: TextStyle(color: Colors.red)),
+                    SizedBox(height: 10)
+                  ]);
+                }
+              }),
               FilledButton(
                 onPressed: isDisabled ? null : submitHandler,
                 style: ButtonStyle(

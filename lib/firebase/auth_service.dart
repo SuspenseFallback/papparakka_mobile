@@ -9,14 +9,16 @@ class AuthService {
 
       return '200';
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        return 'No user found for that email.';
+      if (e.code == "invalid-email") {
+        return '401';
+      } else if (e.code == 'user-not-found') {
+        return '401';
       } else if (e.code == 'wrong-password') {
-        return 'Wrong password provided for that user.';
+        return '401';
       }
     }
 
-    return '202';
+    return '401';
   }
 
   Future<User?> getUser() async {
