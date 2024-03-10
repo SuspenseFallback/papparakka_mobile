@@ -17,10 +17,11 @@ class DatabaseService {
           .collection('users')
           .doc(uid)
           .get()
-          .then((DocumentSnapshot documentSnapshot) {
+          .then((DocumentSnapshot documentSnapshot) async {
         if (documentSnapshot.exists) {
           print('exists');
-          return documentSnapshot.data();
+          Object? data = documentSnapshot.data();
+          return data;
         } else {
           print('doesnt exist');
           return null;
@@ -29,5 +30,6 @@ class DatabaseService {
     } catch (e) {
       return 'Error';
     }
+    return null;
   }
 }

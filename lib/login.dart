@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import './firebase/auth_service.dart';
 import './main.dart';
 
@@ -125,7 +124,6 @@ class _LoginPageState extends State<LoginPage> {
                           return Colors.black;
                         } else if (states.contains(MaterialState.disabled)) {
                           return Colors.black;
-                          ;
                         }
                         return Colors.black; // Use the component's default.
                       },

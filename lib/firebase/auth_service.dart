@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flashcard_app_mobile/firebase/database_service.dart';
-import './database_service.dart';
 
 class AuthService {
   Future<String?> logIn(email, password) async {

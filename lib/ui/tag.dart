@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class UITag extends StatelessWidget {
   const UITag({super.key, required this.label});

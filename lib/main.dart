@@ -1,6 +1,5 @@
 import 'package:flashcard_app_mobile/firebase/auth_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import './home.dart';
 import './ui/card.dart';
 import './nav/bottomnavbar.dart';
@@ -8,7 +7,6 @@ import './login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'firebase/database_service.dart';
-import 'firebase/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
