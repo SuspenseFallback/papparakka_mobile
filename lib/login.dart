@@ -67,6 +67,7 @@ class _LoginPageState extends State<LoginPage> {
   void submitHandler() async {
     String? res = await AuthService().logIn(email, password);
 
+    print(res);
     if (!mounted) return;
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => const HomePage(title: 'Home')));

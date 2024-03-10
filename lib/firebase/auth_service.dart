@@ -4,7 +4,7 @@ import 'package:flashcard_app_mobile/firebase/database_service.dart';
 class AuthService {
   Future<String?> logIn(email, password) async {
     try {
-      final credential = await FirebaseAuth.instance
+      await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
 
       return '200';
