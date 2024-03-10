@@ -10,8 +10,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  late TextEditingController _email_controller;
-  late TextEditingController _password_controller;
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
 
   String email = "";
   String password = "";
@@ -21,12 +21,12 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    _email_controller = TextEditingController();
-    _password_controller = TextEditingController();
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
 
-    _email_controller.addListener(() {
+    emailController.addListener(() {
       setState(() {
-        email = _email_controller.text;
+        email = emailController.text;
       });
 
       if (email != "" && password != "") {
@@ -40,9 +40,9 @@ class _LoginPageState extends State<LoginPage> {
       }
     });
 
-    _password_controller.addListener(() {
+    passwordController.addListener(() {
       setState(() {
-        password = _password_controller.text;
+        password = passwordController.text;
       });
 
       if (email != "" && password != "") {
@@ -59,8 +59,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
-    _email_controller.dispose();
-    _password_controller.dispose();
+    emailController.dispose();
+    passwordController.dispose();
     super.dispose();
   }
 
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
               SizedBox(height: 30),
               TextField(
-                controller: _email_controller,
+                controller: emailController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Email',
@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 20),
               TextField(
-                controller: _password_controller,
+                controller: passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
