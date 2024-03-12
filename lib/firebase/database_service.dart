@@ -11,25 +11,21 @@ class DatabaseService {
     }
   }
 
-  Future<Object?> getUserData(uid) async {
+  Future<DocumentSnapshot?> getUserData(uid) async {
+    late DocumentSnapshot result;
+
     try {
       FirebaseFirestore.instance
           .collection('users')
           .doc(uid)
           .get()
           .then((DocumentSnapshot documentSnapshot) async {
-        if (documentSnapshot.exists) {
-          print('exists');
-          Object? data = documentSnapshot.data();
-          return data;
-        } else {
-          print('doesnt exist');
-          return null;
-        }
+        result = documentSnapshot;
       });
     } catch (e) {
-      return 'Error';
+      return null;
     }
-    return null;
+
+    return result;
   }
 }
